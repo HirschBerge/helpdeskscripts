@@ -7,9 +7,7 @@ dt=$(date '+%m/%d/%Y_%H:%M:%S')
 echo "Inspect the drive for multiple boot/storage/recovery partitions. Check out the README.odt for reference photos."
 sudo gnome-disks
 echo "Showing list of drives: "
-sudo lsblk | grep -i "Disk" |grep -iv "Backup"
-echo "What drive are you attempting to wipe? Do not include /dev/"
-read -r drive
+drive=`lsblk | grep disk |grep -v Backup |awk '{ print $1 " "$4  }' |dmenu -l 5 -p "Pick which drive you wish to wipe"| awk '{ print $1 }'`
 size=`sudo fdisk -l | grep -i "Disk /dev/$drive" | awk -F" " '{print $3}' | awk '{printf "%d\n", $1}'`
 if (( size <= 110 ))
 then
