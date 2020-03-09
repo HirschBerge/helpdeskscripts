@@ -18,4 +18,4 @@ sleep 1
 echo "alias MAC='~/helpdeskscripts/MACFinder.sh'" |tee -a ~/.bashrc
 echo "Creating alias 'newtoolkit' to create a new linux toolkit (do not use this from the actual wiping station. ONLY from one flashdrive to another!!!"
 sleep 5
-echo "alias newtoolkit='~/helpdeskscripts/toolkitcreator.sh'" |tee -a ~/.bashrc&& source ~/.bashrc
+echo "alias newtoolkit='~/helpdeskscripts/toolkitcreator.sh'" |tee -a ~/.bashrc
