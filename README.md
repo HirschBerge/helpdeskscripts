@@ -1,4 +1,4 @@
-To install all the scripts, open a terminal and type "cd helpdeskscripts && bash install.sh"
+To install all the scripts, open a terminal and type "cd helpdeskscripts && bash install.sh && source ~/.bashrc"
 
 
 default account is:  techcenter
