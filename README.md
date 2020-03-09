@@ -1,3 +1,6 @@
+To install all the scripts, open a terminal and type "cd helpdeskscripts && sh install.sh"
+
+
 default account is:  techcenter
 Password is: bondjamesbond
 
