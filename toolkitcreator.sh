@@ -8,7 +8,7 @@ read ans
 if [[ $ans == Y || $ans == y ]]
 then
         echo "Showing list of drives: "
-        sudo fdisk -l | grep -i "Disk /\|Disk m"
+        sudo lsblk |grep -v part"
         echo "What drive is your current toolkit? Do not include /dev/"
         read drive1
 	echo "What drive are you creating as a new toolkit?"
