@@ -1,8 +1,8 @@
 #!/bin/sh
 echo "Changing permissions..."
 sleep 1
-chmod 775 -R $PWD/*
-chown 1000.1000 -R $PWD/*
+sudo chmod 775 -R $PWD/*
+sudo chown 1000.1000 -R $PWD/*
 echo "Adding scripts to the Desktop..."
 sleep 1
 for i in `ls -1|grep -i -v lic| grep -v install`
