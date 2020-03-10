@@ -12,10 +12,10 @@ do
 done
 echo "Creating alias 'wipe' to wipe a drive"
 sleep 1
-echo "alias wipe='~/helpdeskscripts/drivewiper5003.sh'" |tee -a ~/.bashrc
+sudo ln -s $PWD/drivewiper5003.sh /usr/local/bin/wipe
 echo "Creating alias 'MAC' to find the mac address"
+sudo ln -s $PWD/MACFinder.sh /usr/local/bin/MAC
 sleep 1
-echo "alias MAC='~/helpdeskscripts/MACFinder.sh'" |tee -a ~/.bashrc
 echo "Creating alias 'newtoolkit' to create a new linux toolkit (do not use this from the actual wiping station. ONLY from one flashdrive to another!!!"
 sleep 5
-echo "alias newtoolkit='~/helpdeskscripts/toolkitcreator.sh'" |tee -a ~/.bashrc
+sudo ln -s $PWD/toolkitcreator.sh /usr/local/bin/newtoolkit
