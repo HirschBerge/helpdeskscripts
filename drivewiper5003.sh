@@ -9,14 +9,14 @@ sudo gnome-disks
 echo "Showing list of drives: "
 drive=`lsblk | grep disk |grep -v Backup |awk '{ print $1 " "$4  }' |dmenu -l 5 -p "Pick which drive you wish to wipe"| awk '{ print $1 }'`
 size=`sudo fdisk -l | grep -i "Disk /dev/$drive" | awk -F" " '{print $3}' | awk '{printf "%d\n", $1}'`
-if (( size <= 110 ))
+if (( size >= 110 )) || (( size <= 4
 then
-        echo -e "$size"
-        echo -e "${RED}${FLASH}Error: You are trying to wipe a disk that is less than 110 GB. There's a high chance this is the host flashdrive. If you are sure this is the correct drive use\n ${END}${RED}sudo dd if=/dev/urandom of=/dev/<drive here> bs=1M status=progress${NC}"
-else
         echo -e "${RED}Now wiping drive /dev/$drive!${END}"
         sudo dd if=/dev/urandom of=/dev/"$drive" bs=1M status=progress
         echo -e "${RED}${FLASH}Wiping has completed at $dt !!!${END}"
+else
+        echo -e "$size"
+        echo -e "${RED}${FLASH}Error: You are trying to wipe a disk that is less than 110 GB. There's a high chance this is the host flashdrive. If you are sure this is the correct drive use\n ${END}${RED}sudo dd if=/dev/urandom of=/dev/<drive here> bs=1M status=progress${NC}"
 echo "Drive in question should only have one main partition. See README.odt for reference."
 sudo gnome-disks
 
