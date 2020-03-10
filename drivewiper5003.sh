@@ -9,7 +9,7 @@ sudo gnome-disks
 echo "Showing list of drives: "
 drive=`lsblk | grep disk |grep -v Backup |awk '{ print $1 " "$4  }' |dmenu -l 5 -p "Pick which drive you wish to wipe"| awk '{ print $1 }'`
 size=`sudo fdisk -l | grep -i "Disk /dev/$drive" | awk -F" " '{print $3}' | awk '{printf "%d\n", $1}'`
-if (( size >= 110 )) || (( size <= 4
+if (( size >= 110 )) || (( size <= 4 ))
 then
         echo -e "${RED}Now wiping drive /dev/$drive!${END}"
         sudo dd if=/dev/urandom of=/dev/"$drive" bs=1M status=progress
